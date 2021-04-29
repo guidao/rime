@@ -29,6 +29,9 @@ function single_char_first_filter(input)
    end
    if #s > 0 then
       table.sort(s, function(a, b)
+	if #a.comment ~= #b.comment then
+	   return #a.comment < #b.comment
+	end
         local a_num = get_stroke_num(a.text)
 	local b_num = get_stroke_num(b.text)
 	return a_num < b_num
